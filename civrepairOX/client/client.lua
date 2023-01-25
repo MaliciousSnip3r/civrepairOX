@@ -25,6 +25,7 @@ AddEventHandler('repairVehicle', function(vehicle)
     vehicle   = ESX.Game.GetClosestVehicle()
     if vehicle ~= nil then
         if GetPedInVehicleSeat(vehicle, -1) ~= playerPed then
+		SetVehicleDoorOpen(vehicle, 4, false, false) -- 4 is the hood index
                 TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
                 Citizen.Wait(20000)
                 SetVehicleFixed(vehicle)
